@@ -1,0 +1,10 @@
+.btn-transparent {
+    background-color: transparent;
+    outline: none;
+    border: none !important;
+}
+
+.btn-transparent:focus {
+    outline: none;
+    border: none !important;
+}
