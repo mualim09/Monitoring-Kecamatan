@@ -22,6 +22,12 @@
             <!-- [ breadcrumb ] end -->
             <!-- [ Main Content ] start -->
             <div class="row">
+                <div class="col">
+                    <a href="{{ route('admin.kecamatan.generate') }}" class="btn btn-sm btn-primary mb-3">Generate Report<i
+                    class="icon feather icon-file-text f-16 ml-2"></i></a>
+                </div>
+            </div>
+            <div class="row">
 
                 <!-- support-section end -->
                 <!-- customer-section start -->

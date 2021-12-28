@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\KecamatanExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kecamatan;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KecamatanController extends Controller
 {
@@ -182,5 +184,10 @@ class KecamatanController extends Controller
         } else {
             return redirect()->route('admin.kecamatan.index')->with('errors', 'Gagal menghapus data kecamatan!');
         }
+    }
+
+    public function generateReport()
+    {
+        return Excel::download(new KecamatanExport, 'kecamatan.xlsx');
     }
 }

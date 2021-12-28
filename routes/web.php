@@ -25,6 +25,7 @@ Route::middleware(['auth'])->prefix('adm')->namespace('Admin')->group(function (
 
     //Route Kecamatan
     Route::get('/kecamatan', 'KecamatanController@index')->name('admin.kecamatan.index');
+    Route::get('/kecamatan/generate-report', 'KecamatanController@generateReport')->name('admin.kecamatan.generate');
     Route::get('/kecamatan/create', 'KecamatanController@create')->name('admin.kecamatan.create');
     Route::get('/kecamatan/{kecamatan}/edit', 'KecamatanController@edit')->name('admin.kecamatan.edit');
     Route::post('/kecamatan', 'KecamatanController@store')->name('admin.kecamatan.store');
