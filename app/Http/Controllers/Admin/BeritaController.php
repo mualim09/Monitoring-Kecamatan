@@ -58,7 +58,7 @@ class BeritaController extends Controller
                 ->withInput();
         } else {
             if ($request->hasFile('picture')) {
-                $picture = $request->file('picture')->store('public/berita');
+                $picture = $request->file('picture')->store('berita');
                 $berita = Berita::create([
                     'judul' => $request->judul,
                     'slug' => $request->slug,
@@ -113,7 +113,7 @@ class BeritaController extends Controller
             Storage::delete($berita->picture);
 
             //simpan gambar baru
-            $picture = $request->file('picture')->store('public/berita');
+            $picture = $request->file('picture')->store('berita');
             $update = $berita->update([
                 'judul' => $request->judul,
                 'slug' => $request->slug,
