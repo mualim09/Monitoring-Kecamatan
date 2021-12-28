@@ -55,6 +55,7 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($kecamatan->count() !=0 )
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
@@ -65,6 +66,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         {{-- <div class="col-sm-4">
                             <div class="card prod-p-card bg-primary background-pattern-white">
                                 <div class="card-body">
@@ -127,6 +129,7 @@
     {{-- <script src="{{ asset("admin/js/pages/chart-apex.js") }}"></script> --}}
 
     <script>
+    @if ($kecamatan->count() !=0 )
         'use strict';
         $(document).ready(function() {
             setTimeout(function() {
@@ -166,5 +169,7 @@
                 });
             }, 700);
         });
+        @endif
+
     </script>
 @endpush
