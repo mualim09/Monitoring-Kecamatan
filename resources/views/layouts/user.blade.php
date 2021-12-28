@@ -104,7 +104,9 @@
                             <li><a href="#" class="py-1 d-block"><span
                                         class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
                             <li><a href="#" class="py-1 d-block"><span
-                                        class="ion-ios-arrow-forward mr-3"></span>Berita</a></li>
+                                        class="ion-ios-arrow-forward mr-3"></span>Berita</a>
+                                    </li> <li><a href="https://rating.w2sdev.com/" class="py-1 d-block"><span
+                                        class="ion-ios-arrow-forward mr-3"></span>Rating</a></li>
                             {{-- <li><a href="#" class="py-1 d-block"><span
                                         class="ion-ios-arrow-forward mr-3"></span>Kontak</a></li> --}}
                         </ul>
