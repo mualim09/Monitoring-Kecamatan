@@ -261,6 +261,7 @@
     @stack('map-script')
 
     @stack('ckeditor-script')
+    @stack('script')
 </body>
 
 </html>

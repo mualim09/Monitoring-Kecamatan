@@ -31,7 +31,7 @@
                                     <div class="row align-items-center m-b-0">
                                         <div class="col">
                                             <h6 class="m-b-5">Total Kecamatan</h6>
-                                            <h3 class="m-b-0">{{ $kecamatan }}</h3>
+                                            <h3 class="m-b-0">{{ $kecamatan->count() }}</h3>
                                         </div>
                                         <div class="col-auto">
                                             <i class="material-icons-two-tone text-primary">home_work</i>
@@ -46,12 +46,22 @@
                                     <div class="row align-items-center m-b-0">
                                         <div class="col">
                                             <h6 class="m-b-5">Total Berita</h6>
-                                            <h3 class="m-b-0">{{ $berita }}</h3>
+                                            <h3 class="m-b-0">{{ $berita->count() }}</h3>
                                         </div>
                                         <div class="col-auto">
                                             <i class="material-icons-two-tone text-primary">featured_play_list</i>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Grafik Penduduk</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="grafik-penduduk" style="width:100%"></div>
                                 </div>
                             </div>
                         </div>
@@ -109,4 +119,52 @@
         </div>
     </div>
 
+
 @endsection
+
+@push('script')
+    <script src="{{ asset("admin/js/plugins/apexcharts.min.js") }}"></script>
+    {{-- <script src="{{ asset("admin/js/pages/chart-apex.js") }}"></script> --}}
+
+    <script>
+        'use strict';
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(function() {
+                    var options = {
+                        chart: {
+                            height: 320,
+                            type: 'pie',
+                        },
+                        labels: [@foreach ($kecamatan as $eachData)'{{ $eachData->nama_kecamatan }}', @endforeach],
+                        series: [@foreach ($kecamatan as $eachData){{ $eachData->jumlah_penduduk }}, @endforeach],
+                        colors: [@foreach ($kecamatan as $eachData)'{{ '#' . random_color() }}', @endforeach],
+                        legend: {
+                            show: true,
+                            position: 'bottom',
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            dropShadow: {
+                                enabled: false,
+                            }
+                        },
+                        responsive: [{
+                            breakpoint: 480,
+                            options: {
+                                legend: {
+                                    position: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+                    var chart = new ApexCharts(
+                        document.querySelector("#grafik-penduduk"),
+                        options
+                    );
+                    chart.render();
+                });
+            }, 700);
+        });
+    </script>
+@endpush

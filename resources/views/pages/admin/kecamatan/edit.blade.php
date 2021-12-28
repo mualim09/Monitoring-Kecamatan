@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('kecamatan.update', $kecamatan->id) }}"
+                            <form method="POST" action="{{ route('admin.kecamatan.update', $kecamatan->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('put')

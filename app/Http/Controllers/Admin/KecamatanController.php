@@ -68,7 +68,7 @@ class KecamatanController extends Controller
                 ->withInput();
         } else {
             if ($request->hasFile('gambar')) {
-                $gambar = $request->file('gambar')->store('public/kecamatan');
+                $gambar = $request->file('gambar')->store('kecamatan');
                 $kecamatan = Kecamatan::create([
                     'nama_kecamatan' => $request->nama_kecamatan,
                     'nama_camat' => $request->nama_camat,
@@ -126,7 +126,7 @@ class KecamatanController extends Controller
             Storage::delete($kecamatan->gambar);
 
             //simpan gambar baru
-            $gambar = $request->file('gambar')->store('public/kecamatan', 'public');
+            $gambar = $request->file('gambar')->store('kecamatan');
             $update = $kecamatan->update([
                 'nama_kecamatan' => $request->nama_kecamatan,
                 'nama_camat' => $request->nama_camat,
@@ -139,9 +139,9 @@ class KecamatanController extends Controller
             ]);
 
             if ($update) {
-                return redirect()->route('kecamatan.index')->with('success', 'Berhasil mengubah data kecamatan!');
+                return redirect()->route('admin.kecamatan.index')->with('success', 'Berhasil mengubah data kecamatan!');
             } else {
-                return redirect()->route('kecamatan.index')->with('errors', 'Gagal mengubah data kecamatan!');
+                return redirect()->route('admin.kecamatan.index')->with('errors', 'Gagal mengubah data kecamatan!');
             }
         } else {
             $update = $kecamatan->update([

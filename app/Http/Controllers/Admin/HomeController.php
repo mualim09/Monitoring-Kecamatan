@@ -16,8 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $berita = Berita::all()->count();
-        $kecamatan = Kecamatan::all()->count();
+        $berita = Berita::all();
+        $kecamatan = Kecamatan::all();
         return view('pages.admin.home', compact('berita', 'kecamatan'));
     }
 
